@@ -27,21 +27,25 @@ const DEFAULT_CONFIG = {
     ],
     hidden: {
       prompt: "One more thing...",
-      message: "You are more than the sum of your days. You are a light that matters to the people lucky enough to see it.",
-      final: "— You are enough."
+      message: "You are the best in everyway hetvii!! I've never seen a soul so kind,so pure and soo good hetvii just avuj reje!!",
+      final: "— I'm always proud of you!!."
     },
     closing: {
-      line1: "This isn’t everything.",
-      line2: "It’s just something I wanted you to have."
+      line1: "This was the little surprise that i've given you!",
+      line2: "By Yours Truly--JEELIII!."
     }
   },
   photos: [
-    { url: "https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=800&auto=format&fit=crop", label: "A quiet morning" },
-    { url: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop", label: "Soft light" },
-    { url: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop", label: "Shared laughter" }
+    { url: "/images/hetvii1.jpeg", label: "Chasma Vadi Baddie😎" },
+    { url: "/images/hetvii2.jpeg", label: "Cutie vadi hetvii😊" },
+    { url: "/images/hetvii3.jpeg", label: "Bindi Vadi hetvii🫠"},
+    { url: "/images/hetvii4.jpeg", label: "Birthday vadi hetvii🥳" },
+    { url: "/images/hetvii5.jpeg", label: "Navratri vadi hetvii✨" },
+    { url: "/images/hetvii6.jpeg", label: "Favorite vadi hetvii🩷" },
   ],
   videos: [
-    { url: "https://assets.mixkit.co/videos/preview/mixkit-sun-shining-through-tree-leaves-2311-large.mp4", title: "Peaceful trees" }
+    { url: "/videos/vid1.mp4", title: "MARA MARI😱" },
+    { url: "/videos/vid2.mp4", title: "POOKIE 🎀" }
   ]
 };
 
@@ -131,10 +135,7 @@ const VideoItem: React.FC<{ vid: any }> = ({ vid }) => {
 // --- Main App ---
 
 const App: React.FC = () => {
-  const [config, setConfig] = useState(() => {
-    const saved = localStorage.getItem('quiet_gratitude_final_v8');
-    return saved ? JSON.parse(saved) : DEFAULT_CONFIG;
-  });
+ const [config, setConfig] = useState(DEFAULT_CONFIG);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showHidden, setShowHidden] = useState(false);
@@ -146,14 +147,6 @@ const App: React.FC = () => {
   const transitionAudioRef = useRef<HTMLAudioElement | null>(null);
   const bgMusicRef = useRef<HTMLAudioElement | null>(null);
   const totalSlides = 7;
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('quiet_gratitude_final_v8', JSON.stringify(config));
-    } catch (e) {
-      console.warn("Storage limit reached.");
-    }
-  }, [config]);
 
   const playSlideSound = useCallback(() => {
     if (transitionAudioRef.current && !isMuted) {
