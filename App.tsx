@@ -12,12 +12,12 @@ const DEFAULT_CONFIG = {
   },
   messages: {
     intro: {
-      heading: "I wanted to say a few things.",
-      subtext: "So I made this."
+      heading: "Hiie Hetviii!!",
+      subtext: "This was the surprise that i came up with."
     },
     appreciation: {
-      p1: "In a world that often feels too loud and too fast, you have this rare gift of making life feel quiet, meaningful, and soft.",
-      p2: "I built this space specifically for you. Not because I had to, but because I wanted you to have a small, permanent reminder of how much your presence matters."
+      p1: "I've been working on this for maybe 5 6 hours and it was beautiful hetvii it really was and ive made this to thank you!!",
+      p2: "Its always been pleasure to be with you,have you by my side and thanks for this all really you are the kindest,most forgiving soul ive ever met."
     },
     galleryTitle: "Gathered Moments",
     videoTitle: "Living Fragments",
