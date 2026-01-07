@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You | A Private Space</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400;1,600&family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FFFDFB',
+                        lavenderSoft: '#F8F4FF',
+                        mutedPink: '#FCE4EC',
+                        softBeige: '#FAF9F6',
+                        softPink: '#FFB7C5',
+                        warmPurple: '#E1D5E7',
+                        warmRose: '#FADADD',
+                    },
+                    fontFamily: {
+                        serif: ['"Crimson Pro"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'drift': 'drift 70s infinite linear',
+                        'pulse-gentle': 'pulseGentle 8s ease-in-out infinite',
+                        'float-soft': 'floatSoft 10s ease-in-out infinite',
+                        'music-bar': 'musicBar 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px) scale(0.98)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        },
+                        drift: {
+                            '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '100%': { transform: 'translate(0, -1500px) rotate(360deg)' },
+                        },
+                        pulseGentle: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.7', transform: 'scale(1.08)' },
+                        },
+                        floatSoft: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-25px) rotate(2deg)' },
+                        },
+                        musicBar: {
+                            '0%, 100%': { height: '4px' },
+                            '50%': { height: '18px' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFF2F5;
+            background-image: 
+                radial-gradient(at 0% 0%, #FFFDFB 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #FADADD 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #FFE5EC 0px, transparent 60%),
+                radial-gradient(at 0% 100%, #F5F0FF 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #FFFDFB 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Subtle Noise Texture Overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        #root { width: 100%; height: 100%; }
+        
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 100;
+            animation: heartFloat 3.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+        }
+        @keyframes heartFloat {
+            0% { transform: scale(0) translateY(0); opacity: 0; }
+            15% { opacity: 0.8; }
+            100% { transform: scale(3.5) translateY(-400px) translateX(var(--tx)); opacity: 0; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 183, 197, 0.4);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar { display: none; }
+        
+        .card-hover-effect {
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 40px 80px -20px rgba(255, 183, 197, 0.35);
+            border-color: rgba(255, 183, 197, 0.6);
+        }
+
+        .btn-hover-pink {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-hover-pink:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 40px rgba(255, 183, 197, 0.5);
+            background-color: #FFFDFB;
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="font-sans text-gray-800 select-none">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
